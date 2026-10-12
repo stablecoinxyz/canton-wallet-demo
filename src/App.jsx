@@ -705,28 +705,28 @@ function App() {
                   overflow: 'auto',
                   fontSize: '0.8em',
                   margin: 0
-                }}>{`# Connect to Canton Console (from cn-quickstart/quickstart, run \`make canton-console\`)
+                }}>{`// Connect to Canton Console (from cn-quickstart/quickstart, run \`make canton-console\`)
 
-# In the Canton console, run:
+// In the Canton console, run:
 val usr = participants.all.find(_.name == "app-user").get
 val appProvider = participants.all.find(_.name == "app-provider").get
 
-# Create your wallet with a party hint (e.g. demo-wallet-1) and get its party ID
+// Create your wallet with a party hint (e.g. demo-wallet-1) and get its party ID
 val myWalletPartyId = usr.parties.enable("demo-wallet-1")
 
-# Get the admin party ID (first party in the list)
+// Get the admin party ID (first party in the list)
 val adminPartyId = appProvider.parties.list().head.party.toLf
 
-# Grant rights to the party:
-#   - actAs rights (REQUIRED for transactions!),
-#   - readAs for admin party (REQUIRED for cross-participant operations)
+// Grant rights to the party:
+//   - actAs rights (REQUIRED for transactions!),
+//   - readAs for admin party (REQUIRED for cross-participant operations)
 usr.ledger_api.users.rights.grant(
   id = "ledger-api-user",
   actAs = Set(myWalletPartyId),
   readAs = Set(PartyId.tryFromProtoPrimitive(adminPartyId))
 )
 
-# Copy the full party ID from the output and paste it in "Use Existing Party ID" below:
+// Copy the full party ID from the output and paste it in "Use Existing Party ID" below:
 println(myWalletPartyId.toLf)
 `}</pre>
                 <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.85em', color: '#666' }}>
