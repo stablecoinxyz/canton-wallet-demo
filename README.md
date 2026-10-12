@@ -21,7 +21,10 @@ A web application demonstrating **real DAML contract operations** on Canton Netw
 ## Prerequisites
 
 - Node.js (v18 or higher)
-- A running Canton Network LocalNet instance from cn-quickstart
+- A running Canton Network LocalNet instance from cn-quickstart, in **shared-secret** auth mode.
+  The demo signs its ledger tokens with the LocalNet shared secret (`unsafe`), which the
+  default OAuth2 mode rejects with `UNAUTHENTICATED`. In `cn-quickstart/quickstart`, run
+  `make setup`, answer **no** to "Enable OAUTH2", then restart LocalNet.
 - Canton Network services running on:
   - **App Provider**:
     - JSON API: localhost:3975
